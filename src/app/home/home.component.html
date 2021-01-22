@@ -1,1 +1,18 @@
-<p>home works!</p>
+<div *ngIf="!loggedIn">
+  <h2>Welcome Back!</h2>
+
+  <h2>Login Here</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="login($event)">
+    <label>
+      Username:
+      <input type="text" formControlName="username" required>
+    </label>
+    <label>
+      Password:
+      <input type="password" formControlName="password" required>
+    </label>
+    <button type="button" routerLink="/register">Register</button>
+    <input type="submit" value="Login">
+  </form>
+</div>
