@@ -1,9 +1,9 @@
-<div *ngIf="!loggedIn">
+<div>
   <h2>Welcome Back!</h2>
 
   <h2>Login Here</h2>
 
-  <form [formGroup]="loginForm" (ngSubmit)="login($event)">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)">
     <label>
       Username:
       <input type="text" formControlName="username" required>
@@ -13,6 +13,6 @@
       <input type="password" formControlName="password" required>
     </label>
     <button type="button" routerLink="/register">Register</button>
-    <input type="submit" value="Login">
+    <input type="submit" [disabled]="!loginForm.valid" value="Login">
   </form>
 </div>
